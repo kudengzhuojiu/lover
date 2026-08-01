@@ -39,11 +39,13 @@
           <p class="eyebrow">chương hai</p>
           <h2>Những khoảnh khắc đẹp nhất<br />đều có em.</h2>
           <div class="polaroids" id="polaroids">
-            <button class="polaroid photo-a" data-photo="1"><span>Thêm ảnh của hai bạn</span><small>01</small></button>
-            <button class="polaroid photo-b" data-photo="2"><span>Thêm ảnh của hai bạn</span><small>02</small></button>
-            <button class="polaroid photo-c" data-photo="3"><span>Thêm ảnh của hai bạn</span><small>03</small></button>
+            <button class="polaroid photo-a" data-photo="1" aria-label="Xem kỷ niệm 1"><img src="assets/memory-1.jpg" alt="Một khoảnh khắc dễ thương của Vũ" /><small>01</small></button>
+            <button class="polaroid photo-b" data-photo="2" aria-label="Xem kỷ niệm 2"><img src="assets/memory-2.jpg" alt="Một khoảnh khắc dễ thương của Vũ" /><small>02</small></button>
+            <button class="polaroid photo-c" data-photo="3" aria-label="Xem kỷ niệm 3"><img src="assets/memory-3.jpg" alt="Vũ trong một ngày làm nghệ thuật" /><small>03</small></button>
+            <button class="polaroid photo-d" data-photo="4" aria-label="Xem kỷ niệm 4"><img src="assets/memory-4.jpg" alt="Vũ và một chú chim cánh cụt" /><small>04</small></button>
+            <button class="polaroid photo-e" data-photo="5" aria-label="Xem kỷ niệm 5"><img src="assets/memory-5.jpg" alt="Một kỷ niệm đáng yêu của Vũ" /><small>05</small></button>
           </div>
-          <p class="photo-hint">Chạm vào ảnh để phóng to</p>
+          <p class="photo-hint">Vuốt để xem thêm · Chạm vào ảnh để phóng to</p>
           <button class="text-button" data-next>Và rồi thời gian trôi... <span>↓</span></button>
         </div>
       </section>
@@ -86,8 +88,13 @@
         </div>
       </section>
     </main>
-    <div class="lightbox" id="lightbox" aria-hidden="true"><button id="closeLightbox" aria-label="Đóng ảnh">×</button><div id="lightboxContent">♥<small>Những kỷ niệm đẹp đang chờ được thêm vào đây</small></div></div>
-    <audio id="music" loop preload="none"></audio>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="closeLightbox" aria-label="Đóng ảnh">×</button>
+      <button class="gallery-nav gallery-nav--previous" id="previousPhoto" aria-label="Ảnh trước">‹</button>
+      <figure id="lightboxContent"></figure>
+      <button class="gallery-nav gallery-nav--next" id="nextPhoto" aria-label="Ảnh tiếp theo">›</button>
+    </div>
+    <audio id="music" loop preload="metadata" playsinline src="assets/love-song.mp3"></audio>
     <script src="script.js"></script>
   </body>
 </html>

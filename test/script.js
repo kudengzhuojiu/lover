@@ -3,6 +3,14 @@ const scenes = [...document.querySelectorAll('.scene')];
 let sceneIndex = 0;
 let typeStarted = false;
 const startDate = new Date('2025-07-12T00:00:00+07:00'); // 修改为你们认识的日期
+const music = $('#music');
+const memories = [
+  { src: 'assets/memory-1.jpg', caption: 'Một khoảnh khắc thật gần gũi. ♥' },
+  { src: 'assets/memory-2.jpg', caption: 'Những điều giản dị cũng trở nên đẹp hơn vì có em.' },
+  { src: 'assets/memory-3.jpg', caption: 'Một ngày em đang tạo nên điều thật đẹp.' },
+  { src: 'assets/memory-4.jpg', caption: 'Nụ cười của em làm cả ngày trở nên rực rỡ.' },
+  { src: 'assets/memory-5.jpg', caption: 'Và mọi khoảnh khắc của em đều rất đặc biệt với anh.' },
+];
 
 function showScene(index) {
   scenes[sceneIndex].classList.remove('scene--active');
@@ -11,7 +19,13 @@ function showScene(index) {
   if (sceneIndex === 1 && !typeStarted) typeWriter();
   if (sceneIndex === 5) celebrate();
 }
-document.querySelectorAll('[data-next]').forEach(button => button.addEventListener('click', () => showScene(Math.min(sceneIndex + 1, scenes.length - 1))));
+function playMusic() {
+  music.play().then(() => { $('#soundToggle').textContent = '♫'; }).catch(() => {});
+}
+document.querySelectorAll('[data-next]').forEach(button => button.addEventListener('click', () => {
+  if (sceneIndex === 0) playMusic();
+  showScene(Math.min(sceneIndex + 1, scenes.length - 1));
+}));
 $('#restart').addEventListener('click', () => showScene(0));
 
 const message = 'Chào em... Ngày đầu tiên gặp em, anh không nghĩ rằng mình sẽ thích em nhiều đến vậy. Nhưng mọi chuyện đã thay đổi từ nụ cười đầu tiên của em. ♥';
@@ -31,11 +45,23 @@ function moveNo() { const x = Math.random() * 170 - 85; const y = Math.random() 
 no.addEventListener('pointerenter', moveNo); no.addEventListener('click', moveNo);
 $('#yes').addEventListener('click', () => showScene(5));
 
-$('#polaroids').addEventListener('click', () => { $('#lightbox').classList.add('show'); $('#lightbox').setAttribute('aria-hidden', 'false'); });
+let selectedMemory = 0;
+function showMemory(index) {
+  selectedMemory = (index + memories.length) % memories.length;
+  const memory = memories[selectedMemory];
+  $('#lightboxContent').innerHTML = `<img src="${memory.src}" alt="Kỷ niệm ${selectedMemory + 1}" /><figcaption>${memory.caption}</figcaption>`;
+  $('#lightbox').classList.add('show');
+  $('#lightbox').setAttribute('aria-hidden', 'false');
+}
+$('#polaroids').addEventListener('click', event => {
+  const photo = event.target.closest('[data-photo]');
+  if (photo) showMemory(Number(photo.dataset.photo) - 1);
+});
+$('#previousPhoto').addEventListener('click', () => showMemory(selectedMemory - 1));
+$('#nextPhoto').addEventListener('click', () => showMemory(selectedMemory + 1));
 $('#closeLightbox').addEventListener('click', () => { $('#lightbox').classList.remove('show'); $('#lightbox').setAttribute('aria-hidden', 'true'); });
 
-const music = $('#music');
-$('#soundToggle').addEventListener('click', async () => { if (!music.src) { alert('Đặt bài hát bạn có quyền sử dụng vào thư mục dự án với tên love.mp3, sau đó tải lại trang.'); return; } if (music.paused) { await music.play(); $('#soundToggle').textContent = '♫'; } else { music.pause(); $('#soundToggle').textContent = '♩'; } });
+$('#soundToggle').addEventListener('click', () => { if (music.paused) { playMusic(); } else { music.pause(); $('#soundToggle').textContent = '♩'; } });
 
 const sky = $('#sky'), ctx = sky.getContext('2d'), fireworkCanvas = $('#fireworks'), fctx = fireworkCanvas.getContext('2d'); let stars = [], particles = [];
 function resize() { [sky, fireworkCanvas].forEach(c => { c.width = innerWidth * devicePixelRatio; c.height = innerHeight * devicePixelRatio; c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px'; }); ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0); fctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0); stars = Array.from({length:Math.min(160, Math.floor(innerWidth / 5))}, () => ({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.4+.2,a:Math.random()})); }
