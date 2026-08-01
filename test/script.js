@@ -28,7 +28,7 @@ document.querySelectorAll('[data-next]').forEach(button => button.addEventListen
 }));
 $('#restart').addEventListener('click', () => showScene(0));
 
-const message = 'Chào em... Ngày đầu tiên gặp em, anh không nghĩ rằng mình sẽ thích em nhiều đến vậy. Nhưng mọi chuyện đã thay đổi từ nụ cười đầu tiên của em. ♥';
+const message = 'Chào em... Ngày đầu tiên gặp em, anh không nghĩ rằng mình sẽ thích em nhiều đến vậy. Nhưng mọi chuyện đã thay đổi kể từ viên kẹo nhỏ đầu tiên em trao cho anh. 🍬💕';
 function typeWriter() { let i = 0; typeStarted = true; const target = $('#typeText'); const timer = setInterval(() => { target.textContent = message.slice(0, ++i); if (i === message.length) clearInterval(timer); }, 32); }
 
 function updateCounter() {
