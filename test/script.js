@@ -2,7 +2,7 @@ const $ = (selector, scope = document) => scope.querySelector(selector);
 const scenes = [...document.querySelectorAll('.scene')];
 let sceneIndex = 0;
 let typeStarted = false;
-const startDate = new Date('2025-07-12T00:00:00+07:00'); // 修改为你们认识的日期
+const startDate = new Date('2025-08-03T08:00:00+07:00'); // 修改为你们认识的日期
 const music = $('#music');
 const memories = [
   { src: 'assets/memory-1.jpg', caption: 'Một khoảnh khắc thật gần gũi. ♥' },
