@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#100c24" />
+    <meta name="description" content="A little universe made for Vũ." />
+    <title>To My Lovely Vũ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <canvas id="fireworks" aria-hidden="true"></canvas>
+    <div id="petals" aria-hidden="true"></div>
+    <button class="sound-toggle" id="soundToggle" aria-label="Bật hoặc tắt nhạc nền">♫</button>
+    <main id="app">
+      <section class="scene scene--active opening" data-scene="0">
+        <p class="eyebrow reveal">một chút phép màu dành riêng cho em</p>
+        <p class="heart reveal reveal--late">♥</p>
+        <h1 class="hero-title reveal reveal--later">To My Lovely <em>Vũ</em></h1>
+        <p class="opening-copy reveal reveal--last">Có một người... đã lặng lẽ bước vào trái tim anh.</p>
+        <button class="primary-button reveal reveal--last" data-next>Bắt đầu <span>→</span></button>
+      </section>
+
+      <section class="scene meeting" data-scene="1">
+        <div class="scene-content">
+          <p class="eyebrow">chương một</p>
+          <h2>Ngày chúng ta gặp nhau</h2>
+          <div class="type-card"><p id="typeText"></p><span class="cursor">|</span></div>
+          <button class="text-button" data-next>Tiếp tục câu chuyện <span>↓</span></button>
+        </div>
+      </section>
+
+      <section class="scene memories" data-scene="2">
+        <div class="scene-content">
+          <p class="eyebrow">chương hai</p>
+          <h2>Những khoảnh khắc đẹp nhất<br />đều có em.</h2>
+          <div class="polaroids" id="polaroids">
+            <button class="polaroid photo-a" data-photo="1"><span>Thêm ảnh của hai bạn</span><small>01</small></button>
+            <button class="polaroid photo-b" data-photo="2"><span>Thêm ảnh của hai bạn</span><small>02</small></button>
+            <button class="polaroid photo-c" data-photo="3"><span>Thêm ảnh của hai bạn</span><small>03</small></button>
+          </div>
+          <p class="photo-hint">Chạm vào ảnh để phóng to</p>
+          <button class="text-button" data-next>Và rồi thời gian trôi... <span>↓</span></button>
+        </div>
+      </section>
+
+      <section class="scene time-scene" data-scene="3">
+        <div class="scene-content">
+          <p class="eyebrow">chương ba</p>
+          <div class="glowing-heart">♥</div>
+          <h2>Chúng ta đã quen nhau</h2>
+          <div class="counter" id="counter" aria-live="polite"></div>
+          <p>Và anh mong... con số này sẽ tiếp tục tăng mãi mãi.</p>
+          <button class="text-button" data-next>Điều anh muốn nói <span>↓</span></button>
+        </div>
+      </section>
+
+      <section class="scene confession" data-scene="4">
+        <div class="scene-content">
+          <p class="eyebrow">chương bốn</p>
+          <button class="envelope" id="envelope" aria-label="Mở thư tình"><span class="envelope-flap"></span><span class="letter">♥</span></button>
+          <article class="love-letter" id="loveLetter">
+            <p>Vũ à...</p>
+            <p>Có lẽ anh không phải người hoàn hảo. Nhưng anh sẽ cố gắng để trở thành người yêu em nhất.</p>
+            <p>Anh yêu nụ cười của em, yêu cả những điều nhỏ bé tạo nên một Vũ thật đặc biệt.</p>
+          </article>
+          <div class="question" id="question">
+            <h2>Em có đồng ý<br />làm người yêu anh không?</h2>
+            <div class="answer-buttons"><button class="primary-button" id="yes">Đồng ý ♥</button><button class="no-button" id="no">Cho em suy nghĩ thêm</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene finale" data-scene="5">
+        <div class="scene-content finale-content">
+          <p class="eyebrow">một khởi đầu mới</p>
+          <div class="ring-box" id="ringBox"><div class="ring-lid"></div><div class="ring">◇</div></div>
+          <h2>Cảm ơn em, <em>Vũ</em></h2>
+          <p>Từ hôm nay, hãy để anh ở bên em nhé.<br />Anh sẽ luôn yêu em, quan tâm em,<br />và cùng em đi qua thật nhiều mùa xuân nữa.</p>
+          <p class="forever">Anh yêu em hôm nay. Ngày mai. Và mãi mãi. ♥</p>
+          <button class="text-button" id="restart">Xem lại từ đầu <span>↺</span></button>
+        </div>
+      </section>
+    </main>
+    <div class="lightbox" id="lightbox" aria-hidden="true"><button id="closeLightbox" aria-label="Đóng ảnh">×</button><div id="lightboxContent">♥<small>Những kỷ niệm đẹp đang chờ được thêm vào đây</small></div></div>
+    <audio id="music" loop preload="none"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
