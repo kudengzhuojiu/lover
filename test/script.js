@@ -5,11 +5,11 @@ let typeStarted = false;
 const startDate = new Date('2025-08-03T08:00:00+07:00'); // 修改为你们认识的日期
 const music = $('#music');
 const memories = [
-  { src: 'assets/memory-1.jpg', caption: 'Một khoảnh khắc thật gần gũi. ♥' },
-  { src: 'assets/memory-2.jpg', caption: 'Những điều giản dị cũng trở nên đẹp hơn vì có em.' },
-  { src: 'assets/memory-3.jpg', caption: 'Một ngày em đang tạo nên điều thật đẹp.' },
-  { src: 'assets/memory-4.jpg', caption: 'Nụ cười của em làm cả ngày trở nên rực rỡ.' },
-  { src: 'assets/memory-5.jpg', caption: 'Và mọi khoảnh khắc của em đều rất đặc biệt với anh.' },
+  { src: 'assets/memory-1.jpg', caption: 'Chỉ một má lúm đồng tiền thôi, cũng đủ làm tim anh tan ra mất rồi. ❤️❤️❤️' },
+  { src: 'assets/memory-2.jpg', caption: 'em bé vũ ơi xinh quá.❤️❤️❤️' },
+  { src: 'assets/memory-3.jpg', caption: 'Dáng vẻ nghiêm túc của em thật đẹp, tựa như một bức tranh。❤️❤️❤️' },
+  { src: 'assets/memory-4.jpg', caption: 'Cô gái hoạt bát, chú chim cánh cụt vui vẻ.❤️❤️❤️❤️❤️' },
+  { src: 'assets/memory-5.jpg', caption: 'Em bé vũ đẹp trai.❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️' },
 ];
 
 function showScene(index) {
