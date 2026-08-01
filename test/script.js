@@ -20,7 +20,7 @@ function showScene(index) {
   if (sceneIndex === 5) celebrate();
 }
 function playMusic() {
-  music.play().then(() => { $('#soundToggle').textContent = '🎵'; }).catch(() => {});
+  music.play().then(() => { $('#soundToggle').textContent = '♫'; }).catch(() => {});
 }
 document.querySelectorAll('[data-next]').forEach(button => button.addEventListener('click', () => {
   if (sceneIndex === 0) playMusic();
